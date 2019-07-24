@@ -50,7 +50,7 @@ function init() {
 }
 
 function drawSnake() {
-    console.log("Drawing Snake!");
+
     ctx.save();
     ctx.clearRect(0, 0, w, h);
     ctx.fillRect(snake.head.x,snake.head.y,16,8);
@@ -63,14 +63,13 @@ function drawFood(){
         apple = new Apple();
         console.log("is it eaten ? " + apple.isEaten);
     }
-    console.log("Drawing food!")
+
     ctx.save();
     ctx.fillRect(apple.x,apple.y,8,8);
     ctx.restore();
 } 
 
 function move(evt){
-    console.log("Moving Snake!");
     direction = evt.keyCode;
 
     if ( Math.abs(direction - prevDirection) % 2){
@@ -101,10 +100,12 @@ function moveUp(){
     snake.head.y -= snake.speed;
     drawSnake();
     drawFood();
-    if ((snake.head.x >= apple.x-2 && snake.head.x >= apple.x+2) && (snake.head.y <= apple.y+2 && snake.head.y >= apple.y-2))
+    if ((snake.head.x >= apple.x-8*2 && snake.head.x <= apple.x+8*2) && (snake.head.y <= apple.y+8 && snake.head.y >= apple.y-8))
     apple.isEaten = true;
-    console.log("THE APPLE JUST GOT EATEN AT SNAKE COORDINATES: (" + snake.head.x +","+ snake.head.y +")");
-    console.log("AND APPLE COORDINATES: (" + apple.x +","+apple.y+")");
+    if (apple.isEaten){
+        console.log("THE APPLE JUST GOT EATEN AT SNAKE COORDINATES: (" + snake.head.x +","+ snake.head.y +")");
+        console.log("AND APPLE COORDINATES: (" + apple.x +","+apple.y+")");
+        }
     setTimeout(moveUp,2000/snake.speed);
     }
 }
@@ -114,10 +115,12 @@ function moveDown(){
     snake.head.y += snake.speed;
     drawSnake();
     drawFood();
-    if ((snake.head.x >= apple.x-2 && snake.head.x >= apple.x+2) && (snake.head.y <= apple.y+2 && snake.head.y >= apple.y-2)){
+    if ((snake.head.x >= apple.x-8*2 && snake.head.x <= apple.x+8*2) && (snake.head.y <= apple.y+8 && snake.head.y >= apple.y-8)){
         apple.isEaten = true;
-        console.log("THE APPLE JUST GOT EATEN AT SNAKE COORDINATES: (" + snake.head.x +","+ snake.head.y +")");
-        console.log("AND APPLE COORDINATES: (" + apple.x +","+apple.y+")");
+        if (apple.isEaten){
+            console.log("THE APPLE JUST GOT EATEN AT SNAKE COORDINATES: (" + snake.head.x +","+ snake.head.y +")");
+            console.log("AND APPLE COORDINATES: (" + apple.x +","+apple.y+")");
+            }
         }
     setTimeout(moveDown,2000/snake.speed);
     }
@@ -128,10 +131,12 @@ function moveLeft(){
     snake.head.x -= snake.speed*2;
     drawSnake();
     drawFood();
-    if ((snake.head.x >= apple.x-2 && snake.head.x >= apple.x+2) && (snake.head.y <= apple.y+2 && snake.head.y >= apple.y-2)){
+    if ((snake.head.x >= apple.x-8*2 && snake.head.x <= apple.x+8*2) && (snake.head.y <= apple.y+8 && snake.head.y >= apple.y-8)){
     apple.isEaten = true;
+    if (apple.isEaten){
     console.log("THE APPLE JUST GOT EATEN AT SNAKE COORDINATES: (" + snake.head.x +","+ snake.head.y +")");
     console.log("AND APPLE COORDINATES: (" + apple.x +","+apple.y+")");
+    }
     }
     setTimeout(moveLeft,2000/snake.speed);
     }
@@ -142,10 +147,12 @@ function moveRight(){
     snake.head.x += snake.speed*2;
     drawSnake();
     drawFood();
-    if ((snake.head.x >= apple.x-2 && snake.head.x >= apple.x+2) && (snake.head.y <= apple.y+2 && snake.head.y >= apple.y-2)){
+    if ((snake.head.x >= apple.x-8*2 && snake.head.x <= apple.x+8*2) && (snake.head.y <= apple.y+8 && snake.head.y >= apple.y-8)){
         apple.isEaten = true;
-        console.log("THE APPLE JUST GOT EATEN AT SNAKE COORDINATES: (" + snake.head.x +","+ snake.head.y +")");
-        console.log("AND APPLE COORDINATES: (" + apple.x +","+apple.y+")");
+        if (apple.isEaten){
+            console.log("THE APPLE JUST GOT EATEN AT SNAKE COORDINATES: (" + snake.head.x +","+ snake.head.y +")");
+            console.log("AND APPLE COORDINATES: (" + apple.x +","+apple.y+")");
+            }
         }
     setTimeout(moveRight,2000/snake.speed);
     }
@@ -156,8 +163,5 @@ function redraw(){
 }
 
 function reset(){
-    snake = new Snake(1,8,1,1,w/2,h/2);
-    direction = undefined;
-    prevDirection = undefined;
     init();
 }

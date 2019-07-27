@@ -1,0 +1,90 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    background-color: greenyellow;
+    border: 0.1vw solid orangered;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: orangered;
+    text-align: center;
+    box-shadow: 1vw 1vw orangered;
+    border-radius: 1vw;
+}
+
+h2 {
+    color: orangered;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+div {
+    display: inline-block;
+    padding: 0px;
+    margin-left: 14%;
+
+}
+
+canvas {
+    height: 15vw;
+    width: 15vw;
+    border: 0.1vw solid orangered;
+}
+
+canvas:hover {
+    border: 0.1vw solid greenyellow;
+    box-shadow: 1vw 1vw greenyellow;
+}
+
+
+#board {
+    display: inline-block;
+
+}
+
+#results {
+    color: greenyellow;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 4vw;
+    text-align: center;
+}
+
+#playAgain {
+    background-color: greenyellow;
+    box-shadow: 0.5vw 0.5vw orangered;
+    width: 9vw;
+    height: 3vw;
+    color: orangered;
+
+    visibility: hidden;
+}
+
+#playAgain:hover {
+    background-color: orangered;
+    box-shadow: 0.5vw 0.5vw greenyellow;
+    color : greenyellow;
+}
+
+.leftColumn {
+    border-left: 0.1vw solid orangered;
+    float: left;
+}
+
+.middleColumn {
+    border-left: 0.1vw solid orangered;
+    float: left;
+}
+
+.rightColumn {
+    border-right: 0.1vw solid orangered;
+
+}
+
+.firstRow {
+    border-top: 0.1vw solid orangered;
+
+}
+
+.thirdRow{
+    border-bottom: 0.1vw solid orangered;
+}
